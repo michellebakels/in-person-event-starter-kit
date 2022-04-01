@@ -1,3 +1,5 @@
+[![Clone DatoCMS project](https://dashboard.datocms.com/clone/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms%2Fvirtual-event-starter-kit%3Amain)
+
 # [Virtual Event Starter Kit](https://vercel.com/virtual-event-starter-kit)
 
 ### Demo: https://demo.vercel.events
@@ -22,7 +24,6 @@ This platform is built upon three principles:
 - Framework: [Next.js](https://nextjs.org)
   - [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support)
   - [TypeScript](https://nextjs.org/docs/basic-features/typescript)
-- CMS: [Multiple Options](#cms)
 - Videos: [YouTube](https://www.youtube.com)
 - Deployment: [Vercel](https://vercel.com)
 - Authentication: [GitHub OAuth](https://docs.github.com/en/free-pro-team@latest/developers/apps/authorizing-oauth-apps)
@@ -49,9 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Click the button below to clone and deploy this template on [Vercel](https://vercel.com/).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvirtual-event-starter-kit&project-name=virtual-event-starter-kit&repository-name=virtual-event-starter-kit&demo-title=Virtual%20Event%20Starter%20Kit&demo-description=Jumpstart%20your%20virtual%20event%20and%20scale%20to%20any%20size%20with%20Next.js%20and%20Vercel.&demo-url=https%3A%2F%2Fdemo.vercel.events%2F&demo-image=https%3A%2F%2Fdemo.vercel.events%2Fdeploy.png&integration-ids=oac_I1h8Dm9Mf30VNb3xQ0hebYvS&external-id=%7B%22manifest%22%3A%20%22https%3A%2F%2Fraw.githubusercontent.com%2Fvercel%2Fvirtual-event-starter-kit%2Fmain%2Fdatocms.json%22%7D)
-
-You’ll be asked to install the [DatoCMS](https://www.datocms.com) integration. It lets you sign up or log in to DatoCMS and create a new DatoCMS project based on the data (speakers, stages, etc.) used in the demo.
+[![Clone DatoCMS project](https://dashboard.datocms.com/clone/button.svg)](https://dashboard.datocms.com/deploy?repo=datocms%2Fvirtual-event-starter-kit%3Amain)
 
 ## Customize
 
