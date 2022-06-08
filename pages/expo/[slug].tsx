@@ -20,15 +20,15 @@ import Page from '@components/page';
 import CompanySection from '@components/company-section';
 import Layout from '@components/layout';
 
-import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
+import { getAllCompanies } from '@lib/cms-api';
+import { Company } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
-  sponsor: Sponsor;
+  company: Company;
 };
 
-export default function SponsorPage({ sponsor }: Props) {
+export default function CompanyPage({ company }: Props) {
   const meta = {
     title: 'Demo - Virtual Event Starter Kit',
     description: META_DESCRIPTION
@@ -37,7 +37,7 @@ export default function SponsorPage({ sponsor }: Props) {
   return (
     <Page meta={meta}>
       <Layout>
-        <CompanySection sponsor={sponsor} />
+        <CompanySection company={company} />
       </Layout>
     </Page>
   );
@@ -45,10 +45,10 @@ export default function SponsorPage({ sponsor }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const slug = params?.slug;
-  const sponsors = await getAllSponsors();
-  const sponsor = sponsors.find((s: Sponsor) => s.slug === slug) || null;
+  const companies = await getAllCompanies();
+  const company = companies.find((s: Company) => s.slug === slug) || null;
 
-  if (!sponsor) {
+  if (!company) {
     return {
       notFound: true
     };
@@ -56,15 +56,15 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   return {
     props: {
-      sponsor
+      company
     },
     revalidate: 60
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const sponsors = await getAllSponsors();
-  const slugs = sponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
+  const companies = await getAllCompanies();
+  const slugs = companies.map((s: Company) => ({ params: { slug: s.slug } }));
 
   return {
     paths: slugs,
