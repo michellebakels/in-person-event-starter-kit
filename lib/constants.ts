@@ -70,6 +70,10 @@ export const NAVIGATION = [
     route: '/expo'
   },
   {
+    name: 'Sponsorships',
+    route: '/sponsorships'
+  },
+  {
     name: 'Jobs',
     route: '/jobs'
   }

@@ -17,15 +17,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
-import { Sponsor } from '@lib/types';
-import styles from './sponsor-section.module.css';
+import { Company } from '@lib/types';
+import styles from './company-section.module.css';
 import styleUtils from './utils.module.css';
 
 type Props = {
-  sponsor: Sponsor;
+  company: Company;
 };
 
-export default function SponsorSection({ sponsor }: Props) {
+export default function CompanySection({ company }: Props) {
   return (
     <>
       <Link href="/expo">
@@ -53,36 +53,36 @@ export default function SponsorSection({ sponsor }: Props) {
           allowFullScreen
           frameBorder="0"
           height="100%"
-          src={`https://youtube.com/embed/${sponsor.youtubeSlug}`}
-          title={sponsor.name}
+          src={`https://youtube.com/embed/${company.youtubeSlug}`}
+          title={company.name}
           width="100%"
         />
         <div className={styles.container}>
           <div className={styles['name-and-logo']}>
             <Image
-              alt={sponsor.name}
-              src={sponsor.logo.url}
+              alt={company.name}
+              src={company.logo.url}
               className={styles.image}
               loading="lazy"
-              title={sponsor.name}
+              title={company.name}
               height={64}
               width={64}
             />
-            <h1 className={styles.name}>{sponsor.name}</h1>
+            <h1 className={styles.name}>{company.name}</h1>
           </div>
-          <p className={styles.description}>{sponsor.description}</p>
-          <div className={styles['sponsor-details']}>
+          <p className={styles.description}>{company.description}</p>
+          <div className={styles['company-details']}>
             <a
-              href={sponsor.callToActionLink}
+              href={company.callToActionLink}
               target="_blank"
               rel="noopener noreferrer"
               type="button"
               className={styles.button}
             >
-              {sponsor.callToAction}
+              {company.callToAction}
             </a>
             <a
-              href={sponsor.discord}
+              href={company.discord}
               target="_blank"
               rel="noopener noreferrer"
               type="button"
@@ -93,7 +93,7 @@ export default function SponsorSection({ sponsor }: Props) {
           </div>
           <div className={styles.resources}>
             <h2 className={styles.heading}>Resources</h2>
-            {sponsor.links.map(link => (
+            {company.links.map(link => (
               <a
                 key={link.url}
                 href={link.url}

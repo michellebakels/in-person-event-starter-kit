@@ -14,60 +14,45 @@
  * limitations under the License.
  */
 
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 
 import Page from '@components/page';
-import CompanySection from '@components/company-section';
+import SponsorshipsGrid from '@components/sponsorships-grid';
+import Header from '@components/header';
 import Layout from '@components/layout';
 
 import { getAllSponsors } from '@lib/cms-api';
 import { Sponsor } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
+import React from 'react';
 
 type Props = {
-  sponsor: Sponsor;
+  sponsors: Sponsor[];
 };
 
-export default function SponsorPage({ sponsor }: Props) {
+export default function Sponsors({ sponsors }: Props) {
   const meta = {
-    title: 'Demo - Virtual Event Starter Kit',
-    description: META_DESCRIPTION
+    title: 'Sponsorships',
+    description: 'Become an official sponsor of React Miami 2022'
   };
 
   return (
     <Page meta={meta}>
       <Layout>
-        <CompanySection sponsor={sponsor} />
+        <Header hero="Sponsorships" description={meta.description} />
+        <SponsorshipsGrid sponsors={sponsors} />
       </Layout>
     </Page>
   );
 }
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const slug = params?.slug;
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const sponsors = await getAllSponsors();
-  const sponsor = sponsors.find((s: Sponsor) => s.slug === slug) || null;
-
-  if (!sponsor) {
-    return {
-      notFound: true
-    };
-  }
 
   return {
     props: {
-      sponsor
+      sponsors
     },
     revalidate: 60
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const sponsors = await getAllSponsors();
-  const slugs = sponsors.map((s: Sponsor) => ({ params: { slug: s.slug } }));
-
-  return {
-    paths: slugs,
-    fallback: 'blocking'
   };
 };

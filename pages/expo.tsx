@@ -17,19 +17,19 @@
 import { GetStaticProps } from 'next';
 
 import Page from '@components/page';
-import SponsorsGrid from '@components/sponsors-grid';
+import CompaniesGrid from '@components/companies-grid';
 import Header from '@components/header';
 import Layout from '@components/layout';
 
-import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
+import { getAllCompanies } from '@lib/cms-api';
+import { Company } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
-  sponsors: Sponsor[];
+  companies: Company[];
 };
 
-export default function ExpoPage({ sponsors }: Props) {
+export default function ExpoPage({ companies }: Props) {
   const meta = {
     title: 'Expo - Virtual Event Starter Kit',
     description: META_DESCRIPTION
@@ -39,18 +39,18 @@ export default function ExpoPage({ sponsors }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Expo" description={meta.description} />
-        <SponsorsGrid sponsors={sponsors} />
+        <CompaniesGrid companies={companies} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const sponsors = await getAllSponsors();
+  const companies = await getAllCompanies();
 
   return {
     props: {
-      sponsors
+      companies
     },
     revalidate: 60
   };

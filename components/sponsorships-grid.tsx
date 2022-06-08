@@ -17,38 +17,38 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
-import { Sponsor } from '@lib/types';
-import styles from './sponsors-grid.module.css';
+import { Sponsorship } from '@lib/types';
+import styles from './sponsorships-grid.module.css';
 
-function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
+function SponsorshipCard({ sponsorship }: { sponsorship: Sponsorship }) {
   return (
-    <Link key={sponsor.name} href={`/expo/${sponsor.slug}`}>
+    <Link key={sponsorship.name} href={`/expo/${sponsorship.slug}`}>
       <a
         role="button"
         tabIndex={0}
         className={cn(styles.card, {
-          [styles.diamond]: sponsor.tier === 'diamond',
-          [styles.gold]: sponsor.tier === 'gold'
+          [styles.diamond]: sponsorship.tier === 'diamond',
+          [styles.gold]: sponsorship.tier === 'gold'
         })}
       >
         <div className={styles.imageWrapper}>
           <Image
-            alt={sponsor.name}
-            src={sponsor.cardImage.url}
+            alt={sponsorship.name}
+            src={sponsorship.cardImage.url}
             className={cn(styles.image, {
-              [styles.silver]: sponsor.tier === 'silver'
+              [styles.silver]: sponsorship.tier === 'silver'
             })}
             loading="lazy"
-            title={sponsor.name}
+            title={sponsorship.name}
             width={900}
             height={500}
           />
         </div>
-        {sponsor.tier !== 'silver' && (
+        {sponsorship.tier !== 'silver' && (
           <div className={styles.cardBody}>
             <div>
-              <h2 className={styles.name}>{sponsor.name}</h2>
-              <p className={styles.description}>{sponsor.description}</p>
+              <h2 className={styles.name}>{sponsorship.name}</h2>
+              <p className={styles.description}>{sponsorship.description}</p>
             </div>
           </div>
         )}
@@ -58,23 +58,23 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
 }
 
 type Props = {
-  sponsors: Sponsor[];
+  sponsorships: Sponsorship[];
 };
 
-export default function SponsorsGrid({ sponsors }: Props) {
-  const silverSponsors = sponsors.filter(s => s.tier === 'silver');
-  const otherSponsors = sponsors.filter(s => s.tier !== 'silver');
+export default function SponshorshipsGrid({ sponsorships }: Props) {
+  const silvercompanies = sponsorships.filter(s => s.tier === 'silver');
+  const othercompanies = sponsorships.filter(s => s.tier !== 'silver');
 
   return (
     <>
       <div className={styles.grid}>
-        {otherSponsors.map(sponsor => (
-          <SponsorCard key={sponsor.name} sponsor={sponsor} />
+        {othercompanies.map(sponsorship => (
+          <SponsorshipCard key={sponsorship.name} company={sponsorship} />
         ))}
       </div>
       <div className={styles.grid}>
-        {silverSponsors.map(sponsor => (
-          <SponsorCard key={sponsor.name} sponsor={sponsor} />
+        {silvercompanies.map(sponsorship => (
+          <SponsorshipCard key={sponsorship.name} sponsorship={sponsorship} />
         ))}
       </div>
     </>

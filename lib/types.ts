@@ -52,14 +52,22 @@ export type Link = {
   url: string;
 };
 
-export type Sponsor = {
+export type Sponsorship = {
+  name: string;
+  description: string;
+  slug: string;
+  tier: string;
+  cardImage: Image;
+};
+
+export type Company = {
   name: string;
   description: string;
   slug: string;
   website: string;
   callToAction: string;
   callToActionLink: string;
-  links: SponsorLink[];
+  links: CompanyLink[];
   discord: string;
   tier: string;
   cardImage: Image;
@@ -67,7 +75,7 @@ export type Sponsor = {
   youtubeSlug: string;
 };
 
-export type SponsorLink = {
+export type CompanyLink = {
   text: string;
   url: string;
 };
