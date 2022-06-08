@@ -21,16 +21,15 @@ import SponsorshipsGrid from '@components/sponsorships-grid';
 import Header from '@components/header';
 import Layout from '@components/layout';
 
-import { getAllSponsors } from '@lib/cms-api';
-import { Sponsor } from '@lib/types';
-import { META_DESCRIPTION } from '@lib/constants';
+import { getAllSponsorships } from '@lib/cms-api';
+import { Sponsorship } from '@lib/types';
 import React from 'react';
 
 type Props = {
-  sponsors: Sponsor[];
+  sponsorships: Sponsorship[];
 };
 
-export default function Sponsors({ sponsors }: Props) {
+export default function Sponsorships({ sponsorships }: Props) {
   const meta = {
     title: 'Sponsorships',
     description: 'Become an official sponsor of React Miami 2022'
@@ -40,18 +39,18 @@ export default function Sponsors({ sponsors }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Sponsorships" description={meta.description} />
-        <SponsorshipsGrid sponsors={sponsors} />
+        <SponsorshipsGrid sponsorships={sponsorships} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const sponsors = await getAllSponsors();
+  const sponsorships = await getAllSponsorships();
 
   return {
     props: {
-      sponsors
+      sponsorships
     },
     revalidate: 60
   };
