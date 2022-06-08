@@ -69,7 +69,7 @@ export default function SponshorshipsGrid({ sponsorships }: Props) {
     <>
       <div className={styles.grid}>
         {othercompanies.map(sponsorship => (
-          <SponsorshipCard key={sponsorship.name} company={sponsorship} />
+          <SponsorshipCard key={sponsorship.name} sponsorship={sponsorship} />
         ))}
       </div>
       <div className={styles.grid}>
