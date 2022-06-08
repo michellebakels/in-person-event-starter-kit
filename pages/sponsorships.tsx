@@ -23,6 +23,7 @@ import Layout from '@components/layout';
 
 import { getAllSponsorships } from '@lib/cms-api';
 import { Sponsorship } from '@lib/types';
+import { META_DESCRIPTION } from '@lib/constants';
 import React from 'react';
 
 type Props = {
@@ -32,7 +33,7 @@ type Props = {
 export default function Sponsorships({ sponsorships }: Props) {
   const meta = {
     title: 'Sponsorships',
-    description: 'Become an official sponsor of React Miami 2022'
+    description: META_DESCRIPTION
   };
 
   return (

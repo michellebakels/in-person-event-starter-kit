@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsorship } from '@lib/types';
@@ -22,38 +21,35 @@ import styles from './sponsorships-grid.module.css';
 
 function SponsorshipCard({ sponsorship }: { sponsorship: Sponsorship }) {
   return (
-    <Link key={sponsorship.name} href={`/expo/${sponsorship.slug}`}>
-      <a
-        role="button"
-        tabIndex={0}
-        className={cn(styles.card, {
-          [styles.diamond]: sponsorship.tier === 'diamond',
-          [styles.gold]: sponsorship.tier === 'gold'
-        })}
-      >
-        <div className={styles.imageWrapper}>
-          <Image
-            alt={sponsorship.name}
-            src={sponsorship.cardImage.url}
-            className={cn(styles.image, {
-              [styles.silver]: sponsorship.tier === 'silver'
-            })}
-            loading="lazy"
-            title={sponsorship.name}
-            width={900}
-            height={500}
-          />
-        </div>
-        {sponsorship.tier !== 'silver' && (
-          <div className={styles.cardBody}>
-            <div>
-              <h2 className={styles.name}>{sponsorship.name}</h2>
-              <p className={styles.description}>{sponsorship.description}</p>
-            </div>
+    <a
+      tabIndex={0}
+      className={cn(styles.card, {
+        [styles.diamond]: sponsorship.tier === 'diamond',
+        [styles.gold]: sponsorship.tier === 'gold'
+      })}
+    >
+      <div className={styles.imageWrapper}>
+        <Image
+          alt={sponsorship.name}
+          src={sponsorship.cardImage.url}
+          className={cn(styles.image, {
+            [styles.silver]: sponsorship.tier === 'silver'
+          })}
+          loading="lazy"
+          title={sponsorship.name}
+          width={900}
+          height={500}
+        />
+      </div>
+      {sponsorship.tier !== 'silver' && (
+        <div className={styles.cardBody}>
+          <div>
+            <h2 className={styles.name}>{sponsorship.name}</h2>
+            <p className={styles.description}>{sponsorship.description}</p>
           </div>
-        )}
-      </a>
-    </Link>
+        </div>
+      )}
+    </a>
   );
 }
 
@@ -61,19 +57,23 @@ type Props = {
   sponsorships: Sponsorship[];
 };
 
-export default function SponshorshipsGrid({ sponsorships }: Props) {
-  const silvercompanies = sponsorships.filter(s => s.tier === 'silver');
-  const othercompanies = sponsorships.filter(s => s.tier !== 'silver');
+export default function SponsorshipsGrid({ sponsorships }: Props) {
+  const sponsorshipPackages = sponsorships.sort((a, b) => {
+    const sponsorshipA = a.slug.toLowerCase()
+    const sponsorshipB = b.slug.toLowerCase()
+    if (sponsorshipA < sponsorshipB) {
+      return -1;
+    }
+    if (sponsorshipA > sponsorshipB) {
+      return 1;
+    }
+    return 0;
+  });
 
   return (
     <>
       <div className={styles.grid}>
-        {othercompanies.map(sponsorship => (
-          <SponsorshipCard key={sponsorship.name} sponsorship={sponsorship} />
-        ))}
-      </div>
-      <div className={styles.grid}>
-        {silvercompanies.map(sponsorship => (
+        {sponsorshipPackages.map(sponsorship => (
           <SponsorshipCard key={sponsorship.name} sponsorship={sponsorship} />
         ))}
       </div>
