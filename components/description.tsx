@@ -18,7 +18,7 @@ import React from 'react'
 import cn from 'classnames';
 import styles from './description.module.css';
 import styleUtils from './utils.module.css';
-import {Information} from "@lib/types";
+import { Information } from "@lib/types";
 
 type Props = {
   information: Information[];

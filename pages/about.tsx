@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
+import { GetStaticProps } from "next";
+
 import Page from '@components/page';
 import Header from '@components/header';
 import Layout from '@components/layout';
 import React from 'react';
 import { META_DESCRIPTION } from '@lib/constants';
 import Description from "@components/description";
-import {GetStaticProps} from "next";
-import {getAllInformation} from "@lib/cms-api";
-import {Information} from "@lib/types";
+import { getAllInformation } from "@lib/cms-api";
+import { Information } from "@lib/types";
 
 type Props = {
   information: Information[];
