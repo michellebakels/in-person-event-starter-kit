@@ -43,6 +43,12 @@
   animation-delay: 2.4s;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 @keyframes appear {
   to {
     opacity: 1;

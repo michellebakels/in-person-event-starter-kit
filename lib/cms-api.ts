@@ -13,34 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Job, Sponsorship, Company, Stage, Speaker } from '@lib/types';
+import { Company, Information, Job, Sponsorship, Stage, Speaker } from '@lib/types';
 
 import * as datoCmsApi from './dato';
 
 const cmsApi: {
-  getAllSpeakers: () => Promise<Speaker[]>;
-  getAllStages: () => Promise<Stage[]>;
-  getAllSponsorships: () => Promise<Sponsorship[]>;
   getAllCompanies: () => Promise<Company[]>;
   getAllJobs: () => Promise<Job[]>;
+  getAllInformation: () => Promise<Information[]>;
+  getAllSpeakers: () => Promise<Speaker[]>;
+  getAllSponsorships: () => Promise<Sponsorship[]>;
+  getAllStages: () => Promise<Stage[]>;
 } = datoCmsApi;
+
+export async function getAllCompanies(): Promise<Company[]> {
+  return cmsApi.getAllCompanies();
+}
+
+export async function getAllInformation(): Promise<Information[]> {
+  return cmsApi.getAllInformation();
+}
+
+export async function getAllJobs(): Promise<Job[]> {
+  return cmsApi.getAllJobs();
+}
 
 export async function getAllSpeakers(): Promise<Speaker[]> {
   return cmsApi.getAllSpeakers();
-}
-
-export async function getAllStages(): Promise<Stage[]> {
-  return cmsApi.getAllStages();
 }
 
 export async function getAllSponsorships(): Promise<Sponsorship[]> {
   return cmsApi.getAllSponsorships();
 }
 
-export async function getAllCompanies(): Promise<Company[]> {
-  return cmsApi.getAllCompanies();
-}
-
-export async function getAllJobs(): Promise<Job[]> {
-  return cmsApi.getAllJobs();
+export async function getAllStages(): Promise<Stage[]> {
+  return cmsApi.getAllStages();
 }

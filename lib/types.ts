@@ -90,6 +90,10 @@ export type Job = {
   rank: number;
 };
 
+export type Information = {
+  description: string;
+};
+
 export type ConfUser = {
   id?: string;
   email: string;
