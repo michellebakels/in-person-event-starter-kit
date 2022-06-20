@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsorship } from '@lib/types';
 import styles from './sponsorships-grid.module.css';
@@ -23,32 +22,14 @@ function SponsorshipCard({ sponsorship }: { sponsorship: Sponsorship }) {
   return (
     <a
       tabIndex={0}
-      className={cn(styles.card, {
-        [styles.diamond]: sponsorship.tier === 'diamond',
-        [styles.gold]: sponsorship.tier === 'gold'
-      })}
+      className={cn(styles.card)}
     >
-      <div className={styles.imageWrapper}>
-        <Image
-          alt={sponsorship.name}
-          src={sponsorship.cardImage.url}
-          className={cn(styles.image, {
-            [styles.silver]: sponsorship.tier === 'silver'
-          })}
-          loading="lazy"
-          title={sponsorship.name}
-          width={900}
-          height={500}
-        />
-      </div>
-      {sponsorship.tier !== 'silver' && (
-        <div className={styles.cardBody}>
-          <div>
-            <h2 className={styles.name}>{sponsorship.name}</h2>
-            <p className={styles.description}>{sponsorship.description}</p>
-          </div>
+      <div className={styles.cardBody}>
+        <div>
+          <h2 className={styles.name}>{sponsorship.name}</h2>
+          <p className={styles.description}>{sponsorship.description}</p>
         </div>
-      )}
+      </div>
     </a>
   );
 }

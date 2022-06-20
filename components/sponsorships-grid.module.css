@@ -48,10 +48,6 @@
   }
 }
 
-.silver {
-  border-radius: 6px;
-}
-
 .cardBody {
   padding: var(--space-4x);
   color: var(--secondary-color);
