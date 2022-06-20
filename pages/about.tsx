@@ -19,8 +19,16 @@ import Header from '@components/header';
 import Layout from '@components/layout';
 import React from 'react';
 import { META_DESCRIPTION } from '@lib/constants';
+import Description from "@components/description";
+import {GetStaticProps} from "next";
+import {getAllInformation} from "@lib/cms-api";
+import {Information} from "@lib/types";
 
-export default function About() {
+type Props = {
+  information: Information[];
+}
+
+export default function About({ information }: Props) {
   const meta = {
     title: 'About',
     description: META_DESCRIPTION
@@ -30,8 +38,19 @@ export default function About() {
     <Page meta={meta}>
       <Layout>
         <Header hero="About" description={meta.description} />
-        <Description />
+        <Description information={information}/>
       </Layout>
     </Page>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const information = await getAllInformation();
+
+  return {
+    props: {
+      information
+    },
+    revalidate: 60
+  };
+};

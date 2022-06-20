@@ -16,11 +16,9 @@
 
 import React from 'react'
 import cn from 'classnames';
-import {GetStaticProps} from "next";
-import {Information} from "@lib/types";
-import {getAllInformation} from "@lib/cms-api";
 import styles from './description.module.css';
 import styleUtils from './utils.module.css';
+import {Information} from "@lib/types";
 
 type Props = {
   information: Information[];
@@ -37,15 +35,4 @@ export default function Description({ information }: Props) {
       <br/>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const information = await getAllInformation();
-
-  return {
-    props: {
-      information
-    },
-    revalidate: 60
-  };
 };
