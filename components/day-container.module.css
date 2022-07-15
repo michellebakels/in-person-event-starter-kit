@@ -52,7 +52,7 @@
   height: 215px;
 }
 
-.stageName {
+.dayName {
   display: flex;
   font-size: 24px;
   color: #fff;
@@ -124,7 +124,7 @@
     align-items: center;
   }
 
-  .stageName {
+  .dayName {
     font-size: var(--space-8x);
     margin-bottom: 0;
   }

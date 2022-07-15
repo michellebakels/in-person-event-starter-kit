@@ -32,7 +32,7 @@ export type Speaker = {
   imageSquare: Image;
 };
 
-export type Stage = {
+export type Day = {
   name: string;
   slug: string;
   stream: string;

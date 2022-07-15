@@ -21,15 +21,15 @@ import Schedule from '@components/schedule';
 import Layout from '@components/layout';
 import Header from '@components/header';
 
-import { getAllStages } from '@lib/cms-api';
-import { Stage } from '@lib/types';
+import { getAllDays } from '@lib/cms-api';
+import { Day } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
-  allStages: Stage[];
+  allDays: Day[];
 };
 
-export default function SchedulePage({ allStages }: Props) {
+export default function SchedulePage({ allDays }: Props) {
   const meta = {
     title: 'Schedule - Virtual Event Starter Kit',
     description: META_DESCRIPTION
@@ -39,18 +39,18 @@ export default function SchedulePage({ allStages }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Schedule" description={meta.description} />
-        <Schedule allStages={allStages} />
+        <Schedule allDays={allDays} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allStages = await getAllStages();
+  const allDays = await getAllDays();
 
   return {
     props: {
-      allStages
+      allDays
     },
     revalidate: 60
   };

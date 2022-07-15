@@ -16,23 +16,23 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { Stage } from '@lib/types';
+import { Day } from '@lib/types';
 import styles from './schedule-sidebar.module.css';
 import Select from './select';
 import TalkCard from './talk-card';
 import { SHORT_DATE } from '@lib/constants';
 
 type Props = {
-  allStages: Stage[];
+  allDays: Day[];
 };
 
-export default function ScheduleSidebar({ allStages }: Props) {
+export default function ScheduleSidebar({ allDays }: Props) {
   const router = useRouter();
-  const [currentStageSlug, setCurrentStageSlug] = useState(router.query.slug);
-  const currentStage = allStages.find((s: Stage) => s.slug === currentStageSlug);
+  const [currentDaySlug, setCurrentDaySlug] = useState(router.query.slug);
+  const currentDay = allDays.find((s: Day) => s.slug === currentDaySlug);
 
   useEffect(() => {
-    setCurrentStageSlug(router.query.slug);
+    setCurrentDaySlug(router.query.slug);
   }, [router.query.slug]);
 
   return (
@@ -40,22 +40,22 @@ export default function ScheduleSidebar({ allStages }: Props) {
       <h3 className={styles.header}>Schedule</h3>
       <p>{SHORT_DATE}</p>
       <Select
-        aria-label="Select a stage"
-        value={currentStageSlug}
+        aria-label="Select a day"
+        value={currentDaySlug}
         onChange={e => {
           const slug = e.target.value;
-          setCurrentStageSlug(slug);
-          router.push(`/stage/${slug}`);
+          setCurrentDaySlug(slug);
+          router.push(`/day/${slug}`);
         }}
       >
-        {allStages.map(stage => (
-          <option key={stage.slug} value={stage.slug}>
-            {stage.name}
+        {allDays.map(day => (
+          <option key={day.slug} value={day.slug}>
+            {day.name}
           </option>
         ))}
       </Select>
       <div className={styles.talks}>
-        {currentStage?.schedule.map(talk => (
+        {currentDay?.schedule.map(talk => (
           <TalkCard key={talk.title} talk={talk} showTime />
         ))}
       </div>

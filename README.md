@@ -266,9 +266,9 @@ async function getLatestMessageWithEmoji(
 }
 
 export default async function getDiscordMessage(req: NextApiRequest, res: NextApiResponse) {
-  const { stage } = req.query;
+  const { day } = req.query;
   if (typeof stage !== 'string') {
-    return res.status(400).json({ error: 'Query parameter "stage" must be a string' });
+    return res.status(400).json({ error: 'Query parameter "day" must be a string' });
   }
 
   const channelId = CHANNELS.get(stage);
