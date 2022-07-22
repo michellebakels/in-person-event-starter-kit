@@ -15,14 +15,14 @@
  */
 
 import cn from 'classnames';
-import { Day, Talk } from '@lib/types';
+import { Day, ScheduledEvent } from '@lib/types';
 import styles from './schedule.module.css';
-import TalkCard from './talk-card';
+import ScheduledEventCard from './scheduled-event-card';
 
 function DayRow({ day }: { day: Day }) {
   // Group talks by the time block
-  const timeBlocks = day.schedule.reduce((allBlocks: any, talk) => {
-    allBlocks[talk.start] = [...(allBlocks[talk.start] || []), talk];
+  const timeBlocks = day.schedule.reduce((allBlocks: any, scheduledEvent) => {
+    allBlocks[scheduledEvent.start] = [...(allBlocks[scheduledEvent.start] || []), scheduledEvent];
     return allBlocks;
   }, {});
 
@@ -31,11 +31,11 @@ function DayRow({ day }: { day: Day }) {
       <h3 className={cn(styles['day-name'], styles[day.slug])}>
         <span>{day.name}</span>
       </h3>
-      <div className={cn(styles.talks, styles[day.slug])}>
+      <div className={cn(styles['scheduled-events'], styles[day.slug])}>
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
-            {timeBlocks[startTime].map((talk: Talk, index: number) => (
-              <TalkCard key={talk.title} talk={talk} showTime={index === 0} />
+            {timeBlocks[startTime].map((scheduledEvent: ScheduledEvent, index: number) => (
+              <ScheduledEventCard key={scheduledEvent.title} scheduledEvent={scheduledEvent} showTime={index === 0} />
             ))}
           </div>
         ))}

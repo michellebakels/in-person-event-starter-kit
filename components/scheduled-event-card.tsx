@@ -19,12 +19,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { parseISO, format, isBefore, isAfter } from 'date-fns';
-import { Talk } from '@lib/types';
-import styles from './talk-card.module.css';
+import { ScheduledEvent } from '@lib/types';
+import styles from './scheduled-event-card.module.css';
 
 type Props = {
   key: string;
-  talk: Talk;
+  scheduledEvent: ScheduledEvent;
   showTime: boolean;
 };
 
@@ -33,7 +33,7 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function TalkCard({ talk: { title, speaker, start, end }, showTime }: Props) {
+export default function ScheduledEventCard({ scheduledEvent: { title, speaker, start, end, location }, showTime }: Props) {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
@@ -43,7 +43,7 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstSpeakerLink = `/speakers/${speaker[0].slug}`;
+  const firstSpeakerLink = speaker ? `/speakers/${speaker[0].slug}` : `/`;
 
   return (
     <div key={title} className={styles.talk}>
@@ -60,7 +60,7 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
             </h4>
             <div className={styles.speaker}>
               <div className={styles['avatar-group']}>
-                {speaker.map(s => (
+                {speaker?.map(s => (
                   <div key={s.name} className={styles['avatar-wrapper']}>
                     <Image
                       loading="lazy"
@@ -75,7 +75,7 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
                 ))}
               </div>
               <h5 className={styles.name}>
-                {speaker.length === 1 ? speaker[0].name : `${speaker.length} speakers`}
+                {speaker?.length === 1 ? speaker[0].name : `${speaker?.length} speakers`}
               </h5>
             </div>
           </div>

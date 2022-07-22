@@ -19,7 +19,7 @@ import { useRouter } from 'next/router';
 import { Day } from '@lib/types';
 import styles from './schedule-sidebar.module.css';
 import Select from './select';
-import TalkCard from './talk-card';
+import ScheduledEventCard from './scheduled-event-card';
 import { SHORT_DATE } from '@lib/constants';
 
 type Props = {
@@ -54,9 +54,9 @@ export default function ScheduleSidebar({ allDays }: Props) {
           </option>
         ))}
       </Select>
-      <div className={styles.talks}>
-        {currentDay?.schedule.map(talk => (
-          <TalkCard key={talk.title} talk={talk} showTime />
+      <div className={styles['scheduled-events']}>
+        {currentDay?.schedule.map(scheduledEvent => (
+          <ScheduledEventCard key={scheduledEvent.title} scheduledEvent={scheduledEvent} showTime />
         ))}
       </div>
     </div>
