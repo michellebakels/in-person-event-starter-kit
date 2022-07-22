@@ -92,7 +92,7 @@ export async function getAllDays(): Promise<Day[]> {
         stream
         discord
         schedule {
-          talk {
+          ... on TalkRecord {
             title
             start
             end
@@ -105,7 +105,7 @@ export async function getAllDays(): Promise<Day[]> {
               }
             }
           }
-          event {
+          ... on EventRecord {
             title
             start
             end
