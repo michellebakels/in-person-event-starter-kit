@@ -37,7 +37,7 @@ export type Day = {
   slug: string;
   stream: string;
   discord: string;
-  schedule: Talk[];
+  schedule: ScheduledEvent[];
 };
 
 export type Talk = {
@@ -47,6 +47,16 @@ export type Talk = {
   end: string;
   speaker: Speaker[];
 };
+
+export type Event = {
+  title: string;
+  description: string;
+  start: string;
+  end: string;
+  location: string;
+};
+
+export type ScheduledEvent = Talk | Event
 
 export type Link = {
   url: string;
