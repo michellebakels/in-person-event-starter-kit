@@ -92,18 +92,16 @@ export async function getAllDays(): Promise<Day[]> {
         stream
         discord
         schedule {
-          {
-            title
-            start
-            end
-            location
-            speaker {
-              name
-              slug
-              image {
-                url(imgixParams: {fm: jpg, fit: crop, w: 120, h: 120})
-                blurDataURL: blurUpThumb
-              }
+          title
+          start
+          end
+          location
+          speaker {
+            name
+            slug
+            image {
+              url(imgixParams: {fm: jpg, fit: crop, w: 120, h: 120})
+              blurDataURL: blurUpThumb
             }
           }
         }
