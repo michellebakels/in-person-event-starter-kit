@@ -15,9 +15,9 @@
  */
 
 import cn from 'classnames';
-import { Day, Talk } from '@lib/types';
+import { Day, ScheduledEvent } from '@lib/types';
 import styles from './schedule.module.css';
-import TalkCard from './talk-card';
+import ScheduledEventCard from './scheduled-event-card';
 
 function DayRow({ day }: { day: Day }) {
   // Group talks by the time block
@@ -34,8 +34,8 @@ function DayRow({ day }: { day: Day }) {
       <div className={cn(styles.talks, styles[day.slug])}>
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
-            {timeBlocks[startTime].map((talk: Talk, index: number) => (
-              <TalkCard key={talk.title} talk={talk} showTime={index === 0} />
+            {timeBlocks[startTime].map((scheduledEvent: ScheduledEvent, index: number) => (
+              <ScheduledEventCard key={scheduledEvent.title} scheduledEvent={scheduledEvent} showTime={index === 0} />
             ))}
           </div>
         ))}
