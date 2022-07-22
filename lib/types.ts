@@ -56,7 +56,14 @@ export type Event = {
   location: string;
 };
 
-export type ScheduledEvent = Talk | Event
+export type ScheduledEvent = {
+  title: string;
+  description: string;
+  start: string;
+  end: string;
+  speaker?: Speaker[];
+  location?: string;
+}
 
 export type Link = {
   url: string;
