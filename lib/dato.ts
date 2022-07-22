@@ -92,10 +92,11 @@ export async function getAllDays(): Promise<Day[]> {
         stream
         discord
         schedule {
-          talk {
+          {
             title
             start
             end
+            location
             speaker {
               name
               slug
@@ -104,13 +105,6 @@ export async function getAllDays(): Promise<Day[]> {
                 blurDataURL: blurUpThumb
               }
             }
-          }
-          event {
-            title
-            start
-            end
-            location
-            description
           }
         }
       }

@@ -20,7 +20,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { parseISO, format, isBefore, isAfter } from 'date-fns';
 import { ScheduledEvent } from '@lib/types';
-import styles from './talk-card.module.css';
+import styles from './scheduled-event-card.module.css';
 
 type Props = {
   key: string;
