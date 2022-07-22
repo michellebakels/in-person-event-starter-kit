@@ -21,7 +21,6 @@ import TalkCard from './talk-card';
 
 function DayRow({ day }: { day: Day }) {
   // Group talks by the time block
-  console.log("force commit")
   const timeBlocks = day.schedule.reduce((allBlocks: any, talk) => {
     allBlocks[talk.start] = [...(allBlocks[talk.start] || []), talk];
     return allBlocks;
