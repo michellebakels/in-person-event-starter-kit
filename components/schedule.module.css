@@ -56,7 +56,7 @@
   margin-top: 40px;
 }
 
-.talks > div {
+.scheduled-events > div {
   margin-right: 24px;
 }
 
@@ -72,7 +72,7 @@
     padding: var(--space-8x) 0;
   }
 
-  .talks {
+  .scheduled-events {
     flex-direction: row;
     margin-top: 0;
   }
