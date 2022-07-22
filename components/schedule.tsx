@@ -31,7 +31,7 @@ function DayRow({ day }: { day: Day }) {
       <h3 className={cn(styles['day-name'], styles[day.slug])}>
         <span>{day.name}</span>
       </h3>
-      <div className={cn(styles.talks, styles[day.slug])}>
+      <div className={cn(styles['scheduled-events'], styles[day.slug])}>
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
             {timeBlocks[startTime].map((scheduledEvent: ScheduledEvent, index: number) => (

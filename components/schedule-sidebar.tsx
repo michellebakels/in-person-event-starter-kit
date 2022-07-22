@@ -54,9 +54,9 @@ export default function ScheduleSidebar({ allDays }: Props) {
           </option>
         ))}
       </Select>
-      <div className={styles.talks}>
-        {currentDay?.schedule.map(talk => (
-          <ScheduledEventCard key={talk.title} talk={talk} showTime />
+      <div className={styles['scheduled-events']}>
+        {currentDay?.schedule.map(scheduledEvent => (
+          <ScheduledEventCard key={scheduledEvent.title} scheduledEvent={scheduledEvent} showTime />
         ))}
       </div>
     </div>

@@ -49,7 +49,7 @@
   color: var(--brand);
 }
 
-.talks {
+.scheduled-events {
   display: flex;
   flex-direction: row;
   width: 100%;
