@@ -59,7 +59,7 @@ export type Event = {
   imageSquare: Image;
 };
 
-export type ScheduledEvent = Talk | Event;
+export type ScheduledEvent = Talk & Event;
 
 export type Link = {
   url: string;
