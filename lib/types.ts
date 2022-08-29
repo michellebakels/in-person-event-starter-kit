@@ -66,7 +66,7 @@ export type ScheduledEvent = {
   end: string;
   speaker?: Speaker[];
   location?: string;
-  slug?: string;
+  slug: string;
   image: Image;
   imageSquare: Image;
 }
