@@ -60,20 +60,7 @@ export default function ScheduledEventCard({ scheduledEvent: { title, speaker, s
             </h4>
             <div className={styles.speaker}>
               <div className={styles['avatar-group']}>
-                {location?.length > 0 ?
-                  <div key={title} className={styles['avatar-wrapper']}>
-                    <Image
-                      loading="lazy"
-                      alt={title}
-                      className={styles.avatar}
-                      src={image.url}
-                      title={title}
-                      width={24}
-                      height={24}
-                    />
-                  </div>
-                :
-                speaker?.map(s => (
+                {speaker?.map(s => (
                   <div key={s.name} className={styles['avatar-wrapper']}>
                     <Image
                       loading="lazy"
