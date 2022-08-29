@@ -60,35 +60,32 @@ export default function ScheduledEventCard({ scheduledEvent: { title, speaker, s
             </h4>
             <div className={styles.speaker}>
               <div className={styles['avatar-group']}>
-                {
-                  speaker?.map(s => (
-                    <div key={s.name} className={styles['avatar-wrapper']}>
-                      <Image
-                        loading="lazy"
-                        alt={s.name}
-                        className={styles.avatar}
-                        src={s.image.url}
-                        title={s.name}
-                        width={24}
-                        height={24}
-                      />
-                    </div>
-                  ))
-                ||
-                  location && (
-                    <div key={title} className={styles['avatar-wrapper']}>
-                      <Image
-                        loading="lazy"
-                        alt={title}
-                        className={styles.avatar}
-                        src={image.url}
-                        title={title}
-                        width={24}
-                        height={24}
-                      />
-                    </div>
-                  )
-                }
+                {location ?
+                  <div key={title} className={styles['avatar-wrapper']}>
+                    <Image
+                      loading="lazy"
+                      alt={title}
+                      className={styles.avatar}
+                      src={image.url}
+                      title={title}
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                :
+                speaker?.map(s => (
+                  <div key={s.name} className={styles['avatar-wrapper']}>
+                    <Image
+                      loading="lazy"
+                      alt={s.name}
+                      className={styles.avatar}
+                      src={s.image.url}
+                      title={s.name}
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                ))}
               </div>
               <h5 className={styles.name}>
                 {location ? location : speaker?.length === 1 ? speaker[0].name : `${speaker?.length} speakers`}
