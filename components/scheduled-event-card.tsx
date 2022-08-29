@@ -43,9 +43,7 @@ export default function ScheduledEventCard({ scheduledEvent: { title, speaker, s
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  // const scheduledEventLink = speaker ? `/speakers/${speaker[0].slug}` : `/events/${slug}`;
-  // const scheduledEventLink = `/speakers/${speaker[0].slug}`;
-  const scheduledEventLink = speaker ? `/speakers/${speaker[0].slug}` : `/`;
+  const scheduledEventLink = speaker ? `/speakers/${speaker[0].slug}` : `/events/${slug}`;
 
   return (
     <div key={title} className={styles.talk}>
