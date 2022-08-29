@@ -26,7 +26,7 @@ type Props = {
 export default function EventSection({ event }: Props) {
   return (
     <>
-      <Link href="/speakers">
+      <Link href="/schedule">
         <a className={styles.backlink}>
           <svg
             viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ export default function EventSection({ event }: Props) {
           >
             <path d="M15 18l-6-6 6-6" />
           </svg>
-          Back to speakers
+          Back to schedule
         </a>
       </Link>
       <div key={event.title} className={styles.container}>
