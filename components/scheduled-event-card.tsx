@@ -33,7 +33,7 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function ScheduledEventCard({ scheduledEvent: { title, speaker, start, end, location }, showTime }: Props) {
+export default function ScheduledEventCard({ scheduledEvent: { title, speaker, start, end, location, slug }, showTime }: Props) {
   const [isTalkLive, setIsTalkLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
@@ -43,12 +43,12 @@ export default function ScheduledEventCard({ scheduledEvent: { title, speaker, s
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstSpeakerLink = speaker ? `/speakers/${speaker[0].slug}` : `/`;
+  const scheduledEventLink = speaker ? `/speakers/${speaker[0].slug}` : `/events/${slug}`;
 
   return (
     <div key={title} className={styles.talk}>
       {showTime && <p className={styles.time}>{startAndEndTime || <>&nbsp;</>}</p>}
-      <Link href={firstSpeakerLink}>
+      <Link href={scheduledEventLink}>
         <a
           className={cn(styles.card, {
             [styles['is-live']]: isTalkLive

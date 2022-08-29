@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {Job, Sponsorship, Company, Day, Speaker, Information} from '@lib/types';
+import {Job, Sponsorship, Company, Day, Speaker, Information, Event} from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -110,6 +110,7 @@ export async function getAllDays(): Promise<Day[]> {
             start
             end
             location
+            slug
           }
         }
       }
@@ -117,6 +118,31 @@ export async function getAllDays(): Promise<Day[]> {
   `);
 
   return data.allDays;
+}
+
+export async function getAllEvents(): Promise<Event[]> {
+  const data = await fetchCmsAPI(`
+    {
+      allEvents {
+        slug
+        location
+        end
+        description
+        start
+        title
+        image {
+          url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
+          blurDataURL: blurUpThumb
+        }
+        imageSquare: image {
+          url(imgixParams: {fm: jpg, fit: crop, w: 192, h: 192})
+          blurDataURL: blurUpThumb
+        }
+      }
+    }
+  `);
+
+  return data.allEvents;
 }
 
 export async function getAllCompanies(): Promise<Company[]> {
