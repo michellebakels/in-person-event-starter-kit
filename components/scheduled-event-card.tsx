@@ -75,7 +75,7 @@ export default function ScheduledEventCard({ scheduledEvent: { title, speaker, s
                 ))}
               </div>
               <h5 className={styles.name}>
-                {location ? location : speaker?.length === 1 ? speaker[0].name : `${speaker?.length} speakers`}
+                {location?.length > 0 ? location : speaker?.length === 1 ? speaker[0].name : `${speaker?.length} speakers`}
               </h5>
             </div>
           </div>
