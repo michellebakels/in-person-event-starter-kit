@@ -43,6 +43,7 @@ export default function Description({ information: {mainTitle, mainDescription, 
       <br/>
       <p className={cn(styleUtils.container, styles.description)}>
         <div dangerouslySetInnerHTML={{ __html: ticketSchedule }} />
+        {/* force push?*/}
       </p>
     </div>
   );
