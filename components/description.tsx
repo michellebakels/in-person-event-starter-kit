@@ -21,7 +21,7 @@ import styleUtils from './utils.module.css';
 import { Information } from "@lib/types";
 
 type Props = {
-  information: Information[];
+  information: Information;
 }
 
 export default function Description({ information: {mainTitle, mainDescription, subTitle, subDescription} }: Props) {

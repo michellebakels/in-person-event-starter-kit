@@ -26,7 +26,7 @@ import { getInformation } from "@lib/cms-api";
 import { Information } from "@lib/types";
 
 type Props = {
-  information: Information[];
+  information: Information;
 }
 
 export default function About({ information }: Props) {

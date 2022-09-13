@@ -41,7 +41,7 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   return json.data;
 }
 
-export async function getInformation(): Promise<Information[]> {
+export async function getInformation(): Promise<Information> {
   const data = await fetchCmsAPI(`
     {
       information {

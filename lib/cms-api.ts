@@ -20,7 +20,7 @@ import * as datoCmsApi from './dato';
 const cmsApi: {
   getAllCompanies: () => Promise<Company[]>;
   getAllJobs: () => Promise<Job[]>;
-  getInformation: () => Promise<Information[]>;
+  getInformation: () => Promise<Information>;
   getAllSpeakers: () => Promise<Speaker[]>;
   getAllSponsorships: () => Promise<Sponsorship[]>;
   getAllDays: () => Promise<Day[]>;
@@ -31,7 +31,7 @@ export async function getAllCompanies(): Promise<Company[]> {
   return cmsApi.getAllCompanies();
 }
 
-export async function getInformation(): Promise<Information[]> {
+export async function getInformation(): Promise<Information> {
   return cmsApi.getInformation();
 }
 
