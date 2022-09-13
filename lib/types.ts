@@ -108,6 +108,7 @@ export type Information = {
   mainDescription: string;
   subTitle: string;
   subDescription: string;
+  ticketSchedule: string;
 };
 
 export type ConfUser = {

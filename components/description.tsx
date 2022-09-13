@@ -24,7 +24,7 @@ type Props = {
   information: Information;
 }
 
-export default function Description({ information: {mainTitle, mainDescription, subTitle, subDescription} }: Props) {
+export default function Description({ information: {mainTitle, mainDescription, subTitle, subDescription, ticketSchedule} }: Props) {
   return (
     <div>
       <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
@@ -39,6 +39,10 @@ export default function Description({ information: {mainTitle, mainDescription, 
       </h2>
       <p className={cn(styleUtils.container, styles.description)}>
         {subDescription}
+      </p>
+      <br/>
+      <p className={cn(styleUtils.container, styles.description)}>
+        {ticketSchedule}
       </p>
     </div>
   );

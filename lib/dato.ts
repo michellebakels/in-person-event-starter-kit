@@ -49,6 +49,7 @@ export async function getInformation(): Promise<Information> {
         mainDescription
         subTitle
         subDescription
+        ticketSchedule(markdown: true)
       }
     }
   `);
