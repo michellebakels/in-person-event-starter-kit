@@ -22,7 +22,7 @@ import Layout from '@components/layout';
 import React from 'react';
 import { META_DESCRIPTION } from '@lib/constants';
 import Description from "@components/description";
-import { getAllInformation } from "@lib/cms-api";
+import { getInformation } from "@lib/cms-api";
 import { Information } from "@lib/types";
 
 type Props = {
@@ -46,7 +46,7 @@ export default function About({ information }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const information = await getAllInformation();
+  const information = await getInformation();
 
   return {
     props: {

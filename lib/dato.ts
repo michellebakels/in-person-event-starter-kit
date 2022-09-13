@@ -41,16 +41,19 @@ async function fetchCmsAPI(query: string, { variables }: { variables?: Record<st
   return json.data;
 }
 
-export async function getAllInformation(): Promise<Information[]> {
+export async function getInformation(): Promise<Information[]> {
   const data = await fetchCmsAPI(`
     {
-      allInformation(first: 100) {
-        description
+      information {
+        mainTitle
+        mainDescription
+        subTitle
+        subDescription
       }
     }
   `);
 
-  return data.allInformation;
+  return data.information;
 }
 
 export async function getAllSpeakers(): Promise<Speaker[]> {

@@ -24,15 +24,22 @@ type Props = {
   information: Information[];
 }
 
-export default function Description({ information }: Props) {
+export default function Description({ information: {mainTitle, mainDescription, subTitle, subDescription} }: Props) {
   return (
     <div>
-      {information.map(info => (
-        <p className={cn(styleUtils.container, styles.description)}>
-          {info.description}
-        </p>
-      ))}
+      <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
+        {mainTitle}
+      </h2>
+      <p className={cn(styleUtils.container, styles.description)}>
+        {mainDescription}
+      </p>
       <br/>
+      <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
+        {subTitle}
+      </h2>
+      <p className={cn(styleUtils.container, styles.description)}>
+        {subDescription}
+      </p>
     </div>
   );
 };

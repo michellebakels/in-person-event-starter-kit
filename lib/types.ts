@@ -104,7 +104,10 @@ export type Job = {
 };
 
 export type Information = {
-  description: string;
+  mainTitle: string;
+  mainDescription: string;
+  subTitle: string;
+  subDescription: string;
 };
 
 export type ConfUser = {
