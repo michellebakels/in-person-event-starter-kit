@@ -17,28 +17,27 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 import Page from '@components/page';
-import DayContainer from '@components/day-container';
+import EventSection from '@components/event-section';
 import Layout from '@components/layout';
 
-import { getAllDays } from '@lib/cms-api';
-import { Day } from '@lib/types';
+import { getAllEvents } from '@lib/cms-api';
+import { Event } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
 
 type Props = {
-  day: Day;
-  allDays: Day[];
+  event: Event;
 };
 
-export default function DayPage({ day, allDays }: Props) {
+export default function EventPage({ event }: Props) {
   const meta = {
     title: 'Demo - Virtual Event Starter Kit',
     description: META_DESCRIPTION
   };
 
   return (
-    <Page meta={meta} fullViewport>
+    <Page meta={meta}>
       <Layout>
-        <DayContainer day={day} allDays={allDays} />
+        <EventSection event={event} />
       </Layout>
     </Page>
   );
@@ -46,10 +45,10 @@ export default function DayPage({ day, allDays }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const slug = params?.slug;
-  const days = await getAllDays();
-  const day = days.find((s: Day) => s.slug === slug) || null;
+  const events = await getAllEvents();
+  const currentEvent = events.find((s: Event) => s.slug === slug) || null;
 
-  if (!day) {
+  if (!currentEvent) {
     return {
       notFound: true
     };
@@ -57,16 +56,15 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   return {
     props: {
-      day,
-      allDays: days
+      event: currentEvent
     },
     revalidate: 60
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const days = await getAllDays();
-  const slugs = days.map((s: Day) => ({ params: { slug: s.slug } }));
+  const events = await getAllEvents();
+  const slugs = events.map((s: Event) => ({ params: { slug: s.slug } }));
 
   return {
     paths: slugs,

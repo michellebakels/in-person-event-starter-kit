@@ -54,16 +54,12 @@ export type Event = {
   start: string;
   end: string;
   location: string;
+  slug: string;
+  image: Image;
+  imageSquare: Image;
 };
 
-export type ScheduledEvent = {
-  title: string;
-  description: string;
-  start: string;
-  end: string;
-  speaker?: Speaker[];
-  location?: string;
-}
+export type ScheduledEvent = Talk & Event;
 
 export type Link = {
   url: string;

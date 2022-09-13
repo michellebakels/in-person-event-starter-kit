@@ -42,10 +42,6 @@ export const REPO = 'https://github.com/michellebakels/in-person-event-starter-k
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
-    name: 'Stage A',
-    route: '/day/a'
-  },
-  {
     name: 'Schedule',
     route: '/schedule'
   },
