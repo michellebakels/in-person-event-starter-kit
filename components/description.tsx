@@ -70,7 +70,7 @@ export default function Description({ information }: Props) {
         <div dangerouslySetInnerHTML={{ __html: information.ticketSchedule }} />
       </p>
       <br/>
-      <div className={cn(styleUtils.container, styles.description)}>
+      <div className={cn(styleUtils.container)}>
         {information.organizers.map((organizer) => {
           return (
             <div className={cn(styles.bio)}>
