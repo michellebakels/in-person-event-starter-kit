@@ -59,7 +59,7 @@ export async function getInformation(): Promise<Information> {
         eventVideo {
           url
         }
-        organizer {
+        organizers {
           name
           description
           website
