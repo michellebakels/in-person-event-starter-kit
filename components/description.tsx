@@ -15,6 +15,7 @@
  */
 
 import React from 'react'
+import Image from 'next/image'
 import cn from 'classnames';
 import styles from './description.module.css';
 import styleUtils from './utils.module.css';
