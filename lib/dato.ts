@@ -56,9 +56,7 @@ export async function getInformation(): Promise<Information> {
           title
           blurUpThumb
         }
-        eventVideo {
-          url
-        }
+        youtubeSlug
         organizers {
           name
           description

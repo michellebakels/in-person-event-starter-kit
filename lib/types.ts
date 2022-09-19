@@ -20,11 +20,6 @@ export type Image = {
   alt?: string;
 };
 
-export type Video = {
-  url: string;
-  thumbnailURL?: string;
-};
-
 export type Organizers = {
   logo: Image;
   name: string;
@@ -124,7 +119,7 @@ export type Information = {
   subDescription: string;
   ticketSchedule: string;
   eventImages: Image[];
-  eventVideo: Video;
+  youtubeSlug: string;
   organizers: Organizers[];
 };
 

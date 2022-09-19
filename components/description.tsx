@@ -54,13 +54,14 @@ export default function Description({ information }: Props) {
         {information.subDescription}
       </p>
       <div className={cn(styles['media-container'])}>
-        <iframe width="560" height="315"
-                src={information.eventVideo.url}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className={cn(styles.video)}
+        <iframe
+          className={cn(styles.video, styleUtils.appear, styleUtils['appear-first'])}
+          allow="picture-in-picture"
+          allowFullScreen
+          frameBorder="0"
+          height="100%"
+          src={`https://youtube.com/embed/${information.youtubeSlug}`}
+          width="100%"
         />
       </div>
       <br/>
