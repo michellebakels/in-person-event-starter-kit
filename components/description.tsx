@@ -61,8 +61,7 @@ export default function Description({ information }: Props) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className={cn(styles.video)}
-        >
-        </iframe>
+        />
       </div>
       <br/>
       <br/>
