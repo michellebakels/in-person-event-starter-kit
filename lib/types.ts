@@ -17,6 +17,7 @@
 export type Image = {
   url: string;
   blurDataURL?: string;
+  alt?: string;
 };
 
 export type Speaker = {
@@ -109,6 +110,8 @@ export type Information = {
   subTitle: string;
   subDescription: string;
   ticketSchedule: string;
+  eventImages: Image[];
+  eventVideo: string;
 };
 
 export type ConfUser = {

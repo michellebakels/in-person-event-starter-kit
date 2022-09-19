@@ -50,6 +50,15 @@ export async function getInformation(): Promise<Information> {
         subTitle
         subDescription
         ticketSchedule(markdown: true)
+        eventImages {
+          alt
+          url(imgixParams: {fm: jpg, fit: crop, h: "253", w: "450"})
+          title
+          blurUpThumb
+        }
+        eventVideo {
+          url
+        }
       }
     }
   `);

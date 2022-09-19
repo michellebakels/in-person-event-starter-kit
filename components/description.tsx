@@ -24,26 +24,37 @@ type Props = {
   information: Information;
 }
 
-export default function Description({ information: {mainTitle, mainDescription, subTitle, subDescription, ticketSchedule} }: Props) {
+export default function Description({ information }: Props) {
   return (
     <div>
       <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
-        {mainTitle}
+        {information.mainTitle}
       </h2>
       <p className={cn(styleUtils.container, styles.description)}>
-        {mainDescription}
+        {information.mainDescription}
       </p>
+      <br/>
+      <div className={cn(styles['media-container'], styleUtils.container)}>
+        {information.eventImages.map((image) => {
+          return (
+          <Image
+            src={image.url}
+            alt={image.alt}
+            height={253}
+            width={450}
+          />
+          )})}
+      </div>
       <br/>
       <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
-        {subTitle}
+        {information.subTitle}
       </h2>
       <p className={cn(styleUtils.container, styles.description)}>
-        {subDescription}
+        {information.subDescription}
       </p>
       <br/>
       <p className={cn(styleUtils.container, styles.description)}>
-        <div dangerouslySetInnerHTML={{ __html: ticketSchedule }} />
-        {/* force push?*/}
+        <div dangerouslySetInnerHTML={{ __html: information.ticketSchedule }} />
       </p>
     </div>
   );
