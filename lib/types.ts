@@ -20,6 +20,11 @@ export type Image = {
   alt?: string;
 };
 
+export type Video = {
+  url: string;
+  thumbnailURL?: string;
+};
+
 export type Speaker = {
   name: string;
   bio: string;
@@ -111,7 +116,7 @@ export type Information = {
   subDescription: string;
   ticketSchedule: string;
   eventImages: Image[];
-  eventVideo: string;
+  eventVideo: Video;
 };
 
 export type ConfUser = {

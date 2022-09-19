@@ -53,6 +53,18 @@ export default function Description({ information }: Props) {
       <p className={cn(styleUtils.container, styles.description)}>
         {information.subDescription}
       </p>
+      <div className={cn(styles['media-container'])}>
+        <iframe width="560" height="315"
+                src={information.eventVideo.url}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={cn(styles.video)}
+        >
+        </iframe>
+      </div>
+      <br/>
       <br/>
       <p className={cn(styleUtils.container, styles.description)}>
         <div dangerouslySetInnerHTML={{ __html: information.ticketSchedule }} />

@@ -13,3 +13,8 @@
     max-width: 75%;
     margin: 0 auto;
 }
+
+.video {
+    max-width: 560px;
+    height: 315px;
+}
