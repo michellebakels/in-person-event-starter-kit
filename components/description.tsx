@@ -53,6 +53,7 @@ export default function Description({ information }: Props) {
       <p className={cn(styleUtils.container, styles.description)}>
         {information.subDescription}
       </p>
+      <br/>
       <div className={cn(styles['media-container'])}>
         <iframe
           className={cn(styles.video, styleUtils.appear, styleUtils['appear-first'])}
@@ -66,9 +67,17 @@ export default function Description({ information }: Props) {
       </div>
       <br/>
       <br/>
+      <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
+        Ticket Schedule
+      </h2>
+      <br/>
       <p className={cn(styleUtils.container, styles.description)}>
         <div dangerouslySetInnerHTML={{ __html: information.ticketSchedule }} />
       </p>
+      <br/>
+      <h2 className={cn(styles.description, styles['description-title'], styleUtils.container)}>
+        About the Organizers
+      </h2>
       <br/>
       <div className={cn(styles.description, styleUtils.container)}>
         {information.organizers.map((organizer) => {
