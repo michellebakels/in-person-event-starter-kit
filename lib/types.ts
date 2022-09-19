@@ -25,6 +25,14 @@ export type Video = {
   thumbnailURL?: string;
 };
 
+export type Organizers = {
+  logo: Image;
+  name: string;
+  description: string;
+  website: string;
+}
+
+
 export type Speaker = {
   name: string;
   bio: string;
@@ -117,6 +125,7 @@ export type Information = {
   ticketSchedule: string;
   eventImages: Image[];
   eventVideo: Video;
+  organizers: Organizers[];
 };
 
 export type ConfUser = {

@@ -69,6 +69,29 @@ export default function Description({ information }: Props) {
       <p className={cn(styleUtils.container, styles.description)}>
         <div dangerouslySetInnerHTML={{ __html: information.ticketSchedule }} />
       </p>
+      <br/>
+      <div className={cn(styleUtils.container, styles.description)}>
+        {information.organizers.map((organizer) => {
+          return (
+            <div className={cn(styles.bio)}>
+            <div className={cn(styles['logo-container'])}>
+              <a href={organizer.website} target="_blank">
+                <Image
+                  src={organizer.logo.url}
+                  alt={`${organizer.name} logo`}
+                  height={150}
+                  width={150}
+                />
+              </a>
+            </div>
+            <h3>{organizer.name}</h3>
+            <p>
+              {organizer.description}
+            </p>
+          </div>
+          )})
+        }
+      </div>
     </div>
   );
 };

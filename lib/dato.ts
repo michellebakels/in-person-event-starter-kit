@@ -59,6 +59,16 @@ export async function getInformation(): Promise<Information> {
         eventVideo {
           url
         }
+        organizer {
+          name
+          description
+          website
+          logo {
+            alt
+            url
+            blurUpThumb
+          }
+        }
       }
     }
   `);
