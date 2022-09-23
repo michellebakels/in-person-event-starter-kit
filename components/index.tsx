@@ -14,13 +14,20 @@
  * limitations under the License.
  */
 
+import { PageState, UserData } from '@lib/hooks/use-conf-data';
 import Layout from './layout';
 import ConfContainer from './conf-container';
 import Hero from './hero';
 import LearnMore from './learn-more';
 import Tickets from "@components/tickets";
 
-export default function Conf() {
+type Props = {
+  defaultUserData: UserData;
+  sharePage?: boolean;
+  defaultPageState?: PageState;
+};
+
+export default function Conf({defaultUserData, sharePage, defaultPageState = 'registration'}: Props) {
 
   return (
     <Layout>
@@ -28,7 +35,6 @@ export default function Conf() {
           <>
             <Hero />
             <Tickets />
-            <br/>
             <LearnMore />
           </>
       </ConfContainer>
